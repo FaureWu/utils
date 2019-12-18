@@ -1,0 +1,76 @@
+{
+  "name": "@opcjs/utils",
+  "version": "1.0.0",
+  "description": "A tool library collection",
+  "main": "dist/utils.umd.js",
+  "module": "dist/utils.es.js",
+  "types": "src/utils.d.ts",
+  "keywords": [
+    "utils"
+  ],
+  "scripts": {
+    "build": "npm run clean && cross-env NODE_ENV=production rollup --config rollup.config.ts",
+    "clean": "rm -rf ./dist",
+    "release": "npm run lint && npm run test && npm run build && npm publish --access=public",
+    "beta": "npm run lint && npm run test && npm run build && npm publish --tag=beta",
+    "lint": "eslint src --fix --ext .ts",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "test": "jest --coverage"
+  },
+  "author": "Faure Wu <502556093@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/FaureWu/utils.git",
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/jest": "^24.0.15",
+    "@types/prettier": "^1.16.4",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "commitizen": "^3.1.1",
+    "conventional-changelog": "^3.1.8",
+    "conventional-changelog-cli": "^2.0.21",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.4.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "rollup": "^1.14.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaureWu/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FaureWu/utils/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run test && npm run lint"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

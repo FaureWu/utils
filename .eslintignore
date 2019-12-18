@@ -1,0 +1,6 @@
+/node_modules
+/lib
+/dist
+/rollup.config.ts
+/rollup.config.weapp.ts
+/coverage

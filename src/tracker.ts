@@ -1,7 +1,5 @@
 import * as T from './type';
 
-export const a = 1;
-
 class Tracker {
   private status: T.TrackerStatus = {};
 

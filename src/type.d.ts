@@ -20,3 +20,10 @@ export class Tracker {
 
   public wait(name: string): Promise<void>;
 }
+
+export interface StrLenOption {
+  emoji?: boolean;
+  dbcs?: boolean;
+}
+
+export type AssertValidate = () => boolean;

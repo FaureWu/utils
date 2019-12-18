@@ -1,5 +1,5 @@
-import Tracker from "./tracker"
+import Tracker from './tracker';
 
-export {
-  Tracker,
-}
+export * from './char';
+
+export { Tracker };
